@@ -10,13 +10,13 @@ const requireLogin = require("../middleware/requireLogin")
 
 
 
-router.get("/", (req, res)=>{
-    res.render("test.ejs");
-});
+//router.get("/", (req, res)=>{
+    //res.render("test.ejs");
+//});
 
-router.get("/protected", requireLogin, (req, res) => {
-    res.send("Hello User");
-})
+//router.get("/protected", requireLogin, (req, res) => {
+   // res.send("Hello User");
+//})
 
 router.post("/signup", (req, res) => {
     const { name, email, password, image } = req.body;

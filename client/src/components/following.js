@@ -9,7 +9,7 @@ export default function Following() {
     const [following, setFollowing ] = useState([])
     
     useEffect( () => {
-        axios.get('http://localhost:3000/get-following', {
+        axios.get('/get-following', {
             headers:{
                 "Authorization":"Bearer " + localStorage.getItem("jwt") 
             }
