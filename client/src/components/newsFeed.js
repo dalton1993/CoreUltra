@@ -12,14 +12,15 @@ const NewsFeed = () => {
 
     return(
         <div className = "sideBarRight">
-           {data?data.articles.map((news) => {
+           {data?data.map((news) => {
                return(
                    
                        <div className = "feed-card" alt = "No Photo">
                             <a className = "feed-link" href={news.url}>
-                                <div className = "feed-image-wrap"><img src={news.urlToImage} alt=""/></div>
-                                <div className = "feed-title">{ news.source.name } : {news.title}</div>
-                                <div className = "feed-description">{news.description}</div>
+                                {console.log(news['media'].map(item => item['media-metadata'][0]['url']))}
+                                <div className = "feed-image-wrap"><img src={news['media'].map(item => item['media-metadata'][2]['url'])} alt="no photo available"/></div>
+                                <div className = "feed-title">{ news.title}</div>
+                                <div className = "feed-description">{news.abstract}</div>
                             </a>
                         </div>
                    

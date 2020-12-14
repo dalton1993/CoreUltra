@@ -92,12 +92,14 @@ const Sidebar = () => {
                 { renderList() }
             </ul>
 
-            <Modal isOpen = { modal } onRequestClose = {()=> setModal(false)} className = 'user-pic-modal d-flex justify-content-center align-items-center'>
+            <Modal isOpen = { modal } onRequestClose = {()=> setModal(false)} className = 'user-pic-modal d-flex flex-column justify-content-center align-items-center'>
 
                                 
                         <div onClick={() => setModal(false)} className = 'user-pic-modal-close'>
                             Close
                         </div>
+
+                        <h1 style = {{marginBottom:'15px', fontFamily:'Raleway'}}>Upload Image</h1>
 
                         <form>
                             <input className="photo-upload" type="file" onChange = {(e) => {

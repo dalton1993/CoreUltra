@@ -71,6 +71,7 @@ const Signup = () => {
     }
 
         return (
+            <div className="feed" style  = {{marginTop:'1rem'}}>
                 <div classname="sign-in-wrap">
                     <div className="sign-in-img-wrap">
                         <img src="https://www.muraldecal.com/en/img/as366-jpg/folder/products-listado-merchanthover/wall-stickers-banksy-nyc-gangster-rat.jpg"/>
@@ -91,9 +92,9 @@ const Signup = () => {
                     />
 
                     <div className = 'd-flex justify-content-center'>
-                        <div className = "create-img-upload sign-in-pic d-flex justify-content-center" style = {{padding:0}}>
+                        <div className = "create-img-upload sign-in-pic d-flex flex-column align-items-center justify-content-center" style = {{padding:0}}>
                             <span className = 'text-center'>User Picture</span>
-                            <input style = {{border:'none'}}type="file" onChange = {(e) => setImage(e.target.files[0])}/>
+                            <input style = {{border:'none',width:'100%'}} type="file" onChange = {(e) => setImage(e.target.files[0])}/>
                         </div>
                     </div>
 
@@ -102,6 +103,7 @@ const Signup = () => {
                     </button>
                     <p className = 'account'>Already have an account? sign in <Link to = "/signin">here!</Link></p>
                     </form>
+                </div>
                 </div>
           
         )

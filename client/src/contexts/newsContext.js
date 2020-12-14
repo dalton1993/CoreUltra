@@ -8,9 +8,10 @@ const NewsContextProvider = (props) => {
     const [ data, setData ] = useState(); 
 
     useEffect( async () => {
-        await axios.get('https://newsapi.org/v2/top-headlines?country=us&apiKey=01959f81b3c14ba5b299b91935266de8')
-        .then(response =>{
-            setData(response.data)
+        await axios.get('https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=AKI3mAZGgGAxqzRJKfKViB2ESOMEQMQs')
+        .then(response => {
+            console.log(response.data.results)
+            setData(response.data.results)
         })
         .catch(err=>{
             console.log(err)

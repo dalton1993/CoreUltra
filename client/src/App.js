@@ -82,7 +82,7 @@ function App() {
       <Container fluid style = {{height:'100vh'}}>
       
        
-          <Row>
+          <Row className = 'position-fixed w-100' style = {{top:'0', zIndex:'100'}}>
 
             <Col xl = {3} lg = {3} className = 'd-none d-xl-flex' style = {{backgroundColor:'rgb(80,80,80)', padding:'0'}}>
               < UserTag/>
@@ -96,39 +96,38 @@ function App() {
             <Col xl = {3} className = 'd-none d-xl-flex justify-content-center' style = {{padding:'0', backgroundColor:'rgb(80,80,80)'}}>
               < MainSearch />
             </Col>
+
           </Row>
 
-          <Row style = {{marginTop:'10px'}}>
+          <Row style = {{marginTop:'5rem'}}>
 
             <Col xl = {3} lg = {3} className = 'd-none d-xl-flex flex-column'>
               <Row>
-                <Col>
+                <Col style = {{position:'fixed', top:'5rem'}}>
                   < Sidebar/>
                 </Col>
               </Row>
              
               <Row>
-                <Col>
+                <Col style = {{position:'fixed', top:'30rem'}}>
                   < Following />
                 </Col>
               </Row>
             </Col>
 
-            <Col xl ={6} lg = {12} md = {12} className = 'd-flex justify-content-center main-feed'
-            style = {{
-              overflowY:'scroll',
-              height:'92vh'
-            }}
+            <Col xl ={6} lg = {9} md = {12} className = 'd-flex justify-content-center justify-content-xl-center main-feed'
             >
               < Routing />
             </Col>
 
-            <Col xl = {3} className = 'd-none d-lg-flex justify-content-end news-feed'
+            <Col xl = {3} lg = {3} className = 'd-none d-lg-flex justify-content-end news-feed'
             style = 
             {{
-              paddingRight:'35px',
+              position:'fixed', 
+              top:'5rem',
+              right:'10px',
               overflowY:'scroll',
-              height:'92vh'
+              height:'100vh'
               }}>
               < NewsFeed />
             </Col>

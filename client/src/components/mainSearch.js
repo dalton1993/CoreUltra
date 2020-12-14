@@ -49,7 +49,7 @@ const MainSearch = () => {
 
         
         <div className={modal}>
-            <ul style = {{width:'100%', padding:'15px', overflow:'scroll'}}>
+            <ul className = 'srch-box-style' style = {{width:'100%', padding:'15px', overflow:'scroll'}}>
                 { user ? 
                  user.map(person => {
                     return(

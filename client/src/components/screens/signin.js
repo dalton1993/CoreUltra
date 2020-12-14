@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { Link , useHistory } from "react-router-dom"
-import { UserContext } from "../../App"
+import { UserContext } from "../../App";
+import { Row, Col } from 'react-bootstrap';
 import M from "materialize-css"
 import Spinner from 'react-bootstrap/Spinner';
 import Toast from 'react-bootstrap/Toast';  
@@ -50,7 +51,8 @@ const Signin = () => {
 
 
     return (
-            <div className="feed">
+        
+            <div className="feed" style  = {{marginTop:'5rem'}}>
                 <div classname="sign-in-wrap">
                     <div className="sign-in-img-wrap">
                         <img src="https://www.muraldecal.com/en/img/as366-jpg/folder/products-listado-merchanthover/wall-stickers-banksy-nyc-gangster-rat.jpg"/>
@@ -71,6 +73,7 @@ const Signin = () => {
                     </form>
                 </div>
             </div>
+            
     )
 }
 
