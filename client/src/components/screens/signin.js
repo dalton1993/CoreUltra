@@ -31,7 +31,6 @@ const Signin = () => {
         .then(data=>{
             if(data.error){
                 setSpinner(false)
-                M.toast({html: "Invalid email or password!", classes: "red"})
                 setErrorToast(true)
             } else {
                 console.log(data)
@@ -39,7 +38,6 @@ const Signin = () => {
                 localStorage.setItem("jwt", data.token)
                 localStorage.setItem("user", JSON.stringify(data.user))
                 dispatch({type:"USER", payload: data.user})
-                M.toast({html: "Success!", classes: "green"})
                 history.push("/") 
             }
         })
@@ -52,7 +50,7 @@ const Signin = () => {
 
     return (
         
-            <div className="feed" style  = {{marginTop:'5rem'}}>
+            <div className="feed">
                 <div classname="sign-in-wrap">
                     <div className="sign-in-img-wrap">
                         <img src="https://www.muraldecal.com/en/img/as366-jpg/folder/products-listado-merchanthover/wall-stickers-banksy-nyc-gangster-rat.jpg"/>
@@ -61,14 +59,14 @@ const Signin = () => {
                     <form className="sign-in-form-wrap">
                         <input type = "text" placeholder = "email" name= "email" value = {email} onChange = {(e) => setEmail(e.target.value)}/>
                         <input type = "password" placeholder = "password" name = "password" value = {password} onChange = {(e)=>setPassword(e.target.value)}/>
-                        <button className = 'sign-in-submit' onClick = {postData}>
+                        <button className = 'sign-in-submit' onClick = {postData} style = {{outline:'none'}}>
                             Login
                         </button>
                         <p className = 'account'>Don't have an account? sign up <Link to = "/signup" className = "strong">here!</Link></p>
                         { spinner ? <div style = {{width:'100%', display:'flex', justifyContent:'center'}}><Spinner className = 'text-center' style = {{marginTop:'15px'}} animation="grow" /></div> : null }
 
                         <Toast style = {{background:'#d9252e', justifySelf:"center", margin:'0', padding:'0', color:'white', fontSize:'14px', height:'40px'}} onClose={() => setErrorToast(false)} show={errorToast} delay={2000} autohide>
-                        <Toast.Body>Submit all fields</Toast.Body>
+                        <Toast.Body>Invalid Information. Try Again!</Toast.Body>
                         </Toast>
                     </form>
                 </div>

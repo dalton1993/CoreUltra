@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {Link, useHistory} from "react-router-dom"; 
 import axios from 'axios';
 import M from 'materialize-css'; 
+import Toast from 'react-bootstrap/Toast';
 
 const Signup = () => {
     
@@ -11,6 +12,7 @@ const Signup = () => {
     const [email, setEmail] = useState("")
     const [ image, setImage ] = useState("")
     const [ url, setUrl ] = useState("")
+    const [ errorToast, setErrorToast ] = useState(false)
 
     useEffect(()=>{
         if(url){
@@ -51,10 +53,10 @@ const Signup = () => {
             }).then(res => res.json())
             .then(data =>{
                 if(data.error){
-                    M.toast({html: data.error, classes:"red"})
+                    setErrorToast(true)
+                    console.log(data.error)
                 }
                 else{
-                    M.toast({html: data.message, classes:"green"})
                     console.log(data)
                     history.push('/signin')
                 }
@@ -92,13 +94,17 @@ const Signup = () => {
                     />
 
                     <div className = 'd-flex justify-content-center'>
-                        <div className = "create-img-upload sign-in-pic d-flex flex-column align-items-center justify-content-center" style = {{padding:0}}>
+                        <div className = "create-img-upload sign-in-pic d-flex flex-column align-items-center justify-content-center" style = {{padding:0, marginBottom:'0'}}>
                             <span className = 'text-center'>User Picture</span>
                             <input style = {{border:'none',width:'100%'}} type="file" onChange = {(e) => setImage(e.target.files[0])}/>
                         </div>
                     </div>
 
-                    <button className = 'sign-in-submit' onClick={postData}>
+                        <Toast style = {{background:'#d9252e', justifySelf:"center", marginBottom:'10px', padding:'0', color:'white', fontSize:'14px', height:'40px'}} onClose={() => setErrorToast(false)} show={errorToast} delay={2000} autohide>
+                        <Toast.Body>Submit all fields</Toast.Body>
+                        </Toast>
+
+                    <button className = 'sign-in-submit' onClick={postData} style = {{outline:'none'}}>
                         Sign Up!
                     </button>
                     <p className = 'account'>Already have an account? sign in <Link to = "/signin">here!</Link></p>

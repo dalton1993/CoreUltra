@@ -79,7 +79,7 @@ function App() {
     <UserContext.Provider value={{state:state, dispatch:dispatch}}>
       <NewsContextProvider>
       <BrowserRouter>
-      <Container fluid style = {{height:'100vh'}}>
+      <Container fluid>
       
        
           <Row className = 'position-fixed w-100' style = {{top:'0', zIndex:'100'}}>
@@ -127,7 +127,7 @@ function App() {
               top:'5rem',
               right:'10px',
               overflowY:'scroll',
-              height:'100vh'
+              height:'91vh'
               }}>
               < NewsFeed />
             </Col>

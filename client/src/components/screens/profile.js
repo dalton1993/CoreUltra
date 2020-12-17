@@ -143,7 +143,9 @@ const Profile = () => {
         })
     }
 
+
     return (
+        
         <div className="feed">
             { data.length > 0 ? 
                 data.map(item => {
@@ -226,16 +228,18 @@ const Profile = () => {
                 <Modal className = "edit-modal" isOpen = { modal } onRequestClose = {()=> setModal(false)}>
                     <h1 className = 'text-center' style = {{margin:'20px', padding:'0', fontFamily:'Playfair Display'}}>Edit Post</h1>
                                 
-                        <div onClick={() => setModal(false)}
+                    <div onClick={() => setModal(false)}
                             style = {{position:'absolute',
                                     top:'2%',
                                     right:'2%',
                                     cursor:'pointer',
-                                    fontFamily:'Raleway'      
+                                    fontFamily:'Raleway'
                                 }}
-                        >
-                            Close
-                        </div>
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                            </svg>
+                    </div>
 
                         <div style = {{width:'100%'}} className = "modal-card-wrap d-flex flex-column justify-content-center">
                             <form onSubmit={(e)=>{
@@ -277,6 +281,19 @@ const Profile = () => {
                     Comment
                 </h1>
 
+                <div onClick={() => setModalComment(false)}
+                            style = {{position:'absolute',
+                                    top:'2%',
+                                    right:'2%',
+                                    cursor:'pointer',
+                                    fontFamily:'Raleway'
+                                }}
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                            </svg>
+                    </div>
+
                 <form onSubmit={(e)=>{
                         e.preventDefault()
                         makeComment(comment, itemId)
@@ -296,6 +313,7 @@ const Profile = () => {
                 </Modal>
 
         </div>
+        
     )
 }
 
